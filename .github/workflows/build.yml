@@ -16,18 +16,21 @@ jobs:
               with:
                 air-version: "51.3"
                 accept-license: true
-            
+
+            - uses: actions/setup-python@v6
+              with:
+                python-version: '2.7'
+    
             - name: Install Deps
               run: |
                 sudo apt update
-                sudo apt upgrade
                 sudo apt install \
                 autoconf automake bison bzip2 libbz2-dev \
                 cmake libexpat1-dev flex gcc g++ gettext \
                 libglib2.0-dev help2man libarchive-dev \
                 libc6-dev libmpfr-dev libgmp-dev uuid-dev \
                 libncurses-dev libxml2-dev libzip-dev \
-                make pkg-config python3 python3-dev \
+                make pkg-config \
                 rsync libtinfo-dev unzip default-jdk
 
             - name: Build SDK
