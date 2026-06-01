@@ -14,7 +14,7 @@ jobs:
 
             - uses: joshtynjala/setup-adobe-air-action@v2
               with:
-                air-version: "32.0"
+                air-version: "51.3"
                 accept-license: true
             
             - name: Install Deps
