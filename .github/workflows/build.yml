@@ -41,5 +41,5 @@ jobs:
                 make install_libs LIGHTSDK=1
                 make base LIGHTSDK=1
                 make LIGHTSDK=1
-                $(PWD)/sdk/usr/bin/make -s all_with_local_make
+                $PWD/sdk/usr/bin/make -s all_with_local_make
                 make deploy
