@@ -36,7 +36,7 @@ jobs:
             - name: Build SDK
               run: |
                 export _JAVA_OPTIONS="-Xms512m -Xmx4096m"
-                ln -s patches/avmplus-master avmplus-master
+                #ln -s patches/avmplus-master avmplus-master
                 make clean
                 make all LIGHTSDK=1
                 make deploy
