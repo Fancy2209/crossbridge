@@ -19,6 +19,8 @@ jobs:
             
             - name: Install Deps
               run: |
+                sudo apt update
+                sudo apt upgrade
                 sudo apt install \
                 autoconf automake bison bzip2 libbz2-dev \
                 cmake libexpat1-dev flex gcc g++ gettext \
