@@ -37,9 +37,9 @@ jobs:
               run: |
                 export _JAVA_OPTIONS="-Xms512m -Xmx4096m"
                 make clean
-                make diagnostics LIGHTSDK=1
-                make install_libs LIGHTSDK=1
-                make base LIGHTSDK=1
-                make LIGHTSDK=1
+                make diagnostics
+                make install_libs
+                make base
+                make
                 $PWD/sdk/usr/bin/make -s all_with_local_make
                 make deploy
