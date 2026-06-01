@@ -1,0 +1,36 @@
+name: Build Crossbridge SDK
+
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+
+    ubuntu:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: joshtynjala/setup-adobe-air-action@v2
+              with:
+                air-version: "32.0"
+                accept-license: true
+            
+            - name: Install Deps
+              run: |
+                sudo apt install \
+                autoconf automake bison bzip2 libbz2-dev \
+                cmake libexpat1-dev flex gcc g++ gettext \
+                libglib2.0-dev help2man libarchive-dev \
+                libc6-dev libmpfr-dev libgmp-dev uuid-dev \
+                libncurses-dev libxml2-dev libzip-dev \
+                make pkg-config python3 python3-dev \
+                rsync libtinfo-dev unzip default-jdk
+
+            - name: Build SDK
+              run: |
+                export _JAVA_OPTIONS="-Xms512m -Xmx4096m"
+                make clean
+                make all LIGHTSDK=1
+                make deploy
